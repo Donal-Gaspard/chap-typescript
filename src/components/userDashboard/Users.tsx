@@ -1,9 +1,9 @@
 import React from 'react';
-import UserType from "./userType.ts";
-import User from "./User.tsx";
+import UserTypes from "./user.types.ts";
+import UserCard from "./UserCard.tsx";
 
 interface Props {
-users:  UserType[]
+users:  UserTypes[]
 }
 
 const Users : React.FC<Props>= ({users}) => {
@@ -18,18 +18,10 @@ const Users : React.FC<Props>= ({users}) => {
   // }, []);
 
   return (
-    <div>
+    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
       {
         users.map((user) => (
-          <User
-            key={user.userId}
-            userId={user.userId}
-            firstname={user.firstname}
-            lastname={user.lastname}
-            email={user.email}
-            phone={user.phone}
-            isAdmin={user.isAdmin}
-            />
+          <UserCard user={user}/>
         ))
       }
     </div>
