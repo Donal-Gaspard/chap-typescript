@@ -1,13 +1,11 @@
 type Fuel = 'Petrol' |'Diesel' ;
 
-// const
 const NB_OF_RECHARGES = 3;
 
 const MALUS = 20000;
 
 const  BONUS = 5000;
 
-// alias type
 type Model = string | number;
 
 enum Option {
@@ -39,18 +37,20 @@ interface Car {
   consumption: number;
 }
 
+// Interface générique
 interface CarFactory<T extends Car> {
   howToFix: (vehicle: T) => void;
   monthlyCost: (vehicle: T)=> number;
   totalPrice: (vehicle: T) => number;
 }
 
-// Type générique
+//  héritage
 interface Thermal extends Car  {
   fuel: Fuel;
   carbonRejection: number;
 }
 
+//  héritage
 interface Electric extends Car {
   chargeHours: number;
   autonomy: number;
